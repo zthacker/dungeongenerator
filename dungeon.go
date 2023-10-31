@@ -38,6 +38,34 @@ func (r *Room) SetWestDoor(end *Room) {
 	r.doorWest = end
 }
 
+func (r *Room) GetNorthDoor() *Room {
+	if r.doorNorth != nil {
+		return r.doorNorth
+	}
+	return nil
+}
+
+func (r *Room) GetSouthDoor() *Room {
+	if r.doorSouth != nil {
+		return r.doorSouth
+	}
+	return nil
+}
+
+func (r *Room) GetEastDoor() *Room {
+	if r.doorEast != nil {
+		return r.doorEast
+	}
+	return nil
+}
+
+func (r *Room) GetWestDoor() *Room {
+	if r.doorWest != nil {
+		return r.doorWest
+	}
+	return nil
+}
+
 func (r *Room) CreateDungeon(room *Room, depth int) {
 	depth--
 

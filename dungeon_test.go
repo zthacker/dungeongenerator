@@ -37,7 +37,7 @@ func move(p *Player, direction int) {
 	switch direction {
 	case 0:
 		fmt.Printf("%s is checking to see if he can move to the North\n", p.Name)
-		if p.CurrentRoom.doorNorth != nil {
+		if p.CurrentRoom.GetNorthDoor() != nil {
 			p.CurrentRoom = p.CurrentRoom.doorNorth
 			fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
 		} else {
@@ -45,7 +45,7 @@ func move(p *Player, direction int) {
 		}
 	case 1:
 		fmt.Printf("%s is checking to see if he can move to the East\n", p.Name)
-		if p.CurrentRoom.doorEast != nil {
+		if p.CurrentRoom.GetEastDoor() != nil {
 			p.CurrentRoom = p.CurrentRoom.doorEast
 			fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
 		} else {
@@ -53,7 +53,7 @@ func move(p *Player, direction int) {
 		}
 	case 2:
 		fmt.Printf("%s is checking to see if he can move to the South\n", p.Name)
-		if p.CurrentRoom.doorSouth != nil {
+		if p.CurrentRoom.GetSouthDoor() != nil {
 			p.CurrentRoom = p.CurrentRoom.doorSouth
 			fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
 		} else {
@@ -61,8 +61,8 @@ func move(p *Player, direction int) {
 		}
 	case 3:
 		fmt.Printf("%s is checking to see if he can move to the West\n", p.Name)
-		if p.CurrentRoom.doorWest != nil {
-			p.CurrentRoom = p.CurrentRoom.doorWest
+		if p.CurrentRoom.GetWestDoor() != nil {
+			p.CurrentRoom = p.CurrentRoom.doorNorth
 			fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
 		} else {
 			fmt.Printf("%s didn't move West because there isn't a door!\n", p.Name)
