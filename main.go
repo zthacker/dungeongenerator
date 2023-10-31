@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/davecgh/go-spew/spew"
 	"math/rand"
 )
 
@@ -83,29 +84,34 @@ func move(p *Player, direction int) {
 		fmt.Printf("%s is checking to see if he can move to the North\n", p.Name)
 		if p.CurrentRoom.doorNorth != nil {
 			p.CurrentRoom = p.CurrentRoom.doorNorth
+			fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
 		}
-		fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
+		fmt.Printf("%s didn't move North because there isn't a door!\n", p.Name)
 		return
 	case 1:
 		fmt.Printf("%s is checking to see if he can move to the East\n", p.Name)
 		if p.CurrentRoom.doorEast != nil {
 			p.CurrentRoom = p.CurrentRoom.doorEast
+			fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
 		}
-		fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
+		fmt.Printf("%s didn't move East because there isn't a door!\n", p.Name)
+
 		return
 	case 2:
 		fmt.Printf("%s is checking to see if he can move to the South\n", p.Name)
 		if p.CurrentRoom.doorSouth != nil {
 			p.CurrentRoom = p.CurrentRoom.doorSouth
+			fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
 		}
-		fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
+		fmt.Printf("%s didn't move South because there isn't a door!\n", p.Name)
 		return
 	case 3:
 		fmt.Printf("%s is checking to see if he can move to the West\n", p.Name)
 		if p.CurrentRoom.doorWest != nil {
 			p.CurrentRoom = p.CurrentRoom.doorWest
+			fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
 		}
-		fmt.Printf("%s moved to Room: %d\n", p.Name, p.CurrentRoom.name)
+		fmt.Printf("%s didn't move West because there isn't a door!\n", p.Name)
 		return
 	}
 
@@ -122,14 +128,14 @@ func main() {
 	dungeon := &Room{name: 0}
 
 	dungeon.CreateRooms(dungeon, 10)
-	//spew.Dump(dungeon)
+	spew.Dump(dungeon)
 
 	p := &Player{
 		Name:        "Zach",
 		CurrentRoom: dungeon,
 	}
 
-	for i := 0; i <= 40; i++ {
+	for i := 0; i <= 20; i++ {
 		move(p, rand.Intn(3))
 	}
 }
