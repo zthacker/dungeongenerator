@@ -1,4 +1,4 @@
-package dungeoncreator
+package dungeongenerator
 
 import (
 	"fmt"

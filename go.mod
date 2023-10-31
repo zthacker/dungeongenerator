@@ -1,4 +1,4 @@
-module github.com/zthacker/dungeoncreator
+module github.com/zthacker/dungeongenerator
 
 go 1.21
 
